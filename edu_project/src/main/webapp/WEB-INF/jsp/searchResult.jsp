@@ -52,7 +52,7 @@
 								</div>
 								<div style="margin-top:3px;width:30%;height:100%;float:left">
 									<div style="width:100%;height:33%;text-align: center"></div>
-									<img onclick="showPageContent()" alt="" src="${ctx}/assets/img/arrow_right.png" style="cursor:pointer;">
+									<img onclick="showPageContent('${book.title}')" alt="" src="${ctx}/assets/img/arrow_right.png" style="cursor:pointer;">
 								</div>
 							</div>
 						</div>
@@ -77,17 +77,22 @@
 			    }); */
 			</script>
 			<div id="right_panel_body" class="right-panel-body">
-				<div style="display: block;height:100%;width:100%">
-					<iframe id="displayPdfIframe" width="100%" height="100%" src="demo.htm"></iframe>
-					<!-- <iframe id="displayPdfIframe" width="100%" height="100%" src="veiwer.jsp"></iframe> -->
+				<div id="iframe_panel" style="display: block;height:100%;width:100%">
+					<iframe id="displayPdfIframe" width="100%" height="100%" src="loadPpfJsIframe.htm"></iframe>
+					<!--  <iframe id="displayPdfIframe" width="100%" height="100%" src="veiwer.jsp"></iframe> -->
 <%-- 					<iframe id="displayPdfIframe" width="100%" height="100%" src="${ctx}/assets/plugins/pdfJs/generic/web/viewer.html"></iframe> --%>
+
+
+
 				</div>
 			</div>
 		</div>
 	</body>
   <script type="text/javascript">
-      /* var WEB_ROOT = "${ctx}"; */
 	  $(document).ready(function() {
+		  
+		  
+		 
 		  
 		  $(".book-info:first").css("display","block");
 		  $("#right_panel").css("display","none");

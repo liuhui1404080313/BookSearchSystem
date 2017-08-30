@@ -8,11 +8,21 @@
 	 $(me).next().fadeIn(1500);
  }
  
- function showPageContent(){
+ function showPageContent(bookTile){
 	 //$("#main_panel").animate({margin:'0% 0% 0% 3%'});
 	 $("#main_panel").css("margin-left","3%");
      $("#right_panel").css("display","block");
      //$("#right_panel").show();
+//     var $iframe = $("<iframe><iframe/>",{
+//		  "id":"displayPdfIframe",
+//		  "width" : "100%",
+//		  "height" : "100%",
+//		  "src":"http://localhost:8080/edu-project/assets/pdf/LianChengJue.pdf"
+//	  });
+//     $("#iframe_panel").empty();
+//	  $("#iframe_panel").append('<iframe id="displayPdfIframe" width="100%" height="100%" src="http://localhost:8080/edu-project/assets/pdf/LianChengJue.pdf"></iframe>');
+	  //$('#displayPdfIframe').attr('src', $('#displayPdfIframe').attr('src'));
+	  //document.frames("displayPdfIframe").document.location="http://localhost:8080/edu-project/assets/pdf/LianChengJue.pdf"; 
      
  }
  
@@ -24,6 +34,7 @@
 	 //$("#right_panel").hide();
      //$("#main_panel").css("margin","0 auto");
      //$("#main_panel").css("float","inherit");
+	 
  }
  
  function createRightPanel(){

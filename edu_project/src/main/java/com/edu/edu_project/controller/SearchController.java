@@ -90,10 +90,11 @@ public class SearchController {
 		return "jsp/searchResult.jsp";
 	}
 	
-	@RequestMapping (value = "/demo.htm")
-	public String demo()
+	@RequestMapping (value = "/loadPpfJsIframe.htm")
+	public String loadPpfJsIframe(String file)
 	{
-		return "jsp/viewer.jsp";
+		return "jsp/viewer.jsp?file=assets/pdf/" + file + ".pdf";
+//		return "jsp/viewer.jsp" + "?file=assets/pdf/LianChengJue.pdf";
 //		return "plugins/pdfJs/generic/web/viewer.html";
 //		return "login";
 	}
@@ -116,7 +117,7 @@ public class SearchController {
 	private List<BookEntity> getBooks() {
 		BookEntity b1 = new BookEntity();
 		b1.setId(1);
-		b1.setTitle("How The Brain Work");
+		b1.setTitle("LianChengJue");
 		b1.setCoverPath("/assets/img/songshu.png");
 		b1.setAuthor("Benjamin Way");
 		b1.setPublisher("中信出版社");
@@ -127,7 +128,7 @@ public class SearchController {
 
 		BookEntity b2 = new BookEntity();
 		b2.setId(2);
-		b2.setTitle("Effective Java");
+		b2.setTitle("compressed");
 		b2.setCoverPath("/assets/bookCovers/Effective java.png");
 		b2.setAuthor("Joshua Bloch");
 		b2.setPublisher("机械工业出版社");
