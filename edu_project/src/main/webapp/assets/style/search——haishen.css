@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .search{
+        margin: 300px 300px 300px 500px;
+        width: 500px;
+        height:50px;
+        border:1px solid silver ;
+		border-radius:10px
+    }
+    .search_key{
+        width: 430px;
+        height: 50px;
+        border: none;
+        margin-top: 0; 
+        margin-left: 0;  
+		border-radius:10px	
+    }
+    .submit{
+        background:none;
+        margin-top: 0;
+        width:50px;
+        height: 50px;
+        border: none;
+		border-radius:10px
+		
+    }
+	.mod_login{
+		margin: 0px 0px 300px 1100px;
+	}
+	#search_picture{
+		width: 45px;
+		height:45px;
+		border-radius:5px
+	}
+</style>
