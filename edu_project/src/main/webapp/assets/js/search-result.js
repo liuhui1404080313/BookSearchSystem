@@ -105,7 +105,6 @@
    		 data:{"currentPage":currentPage},
    		 success: function (data) {
    			 refreshTbody(data);
-   			 console.log(data);
    		 },
    		 error: function () {
    			 
@@ -125,7 +124,7 @@
 		  index = i + 1;
 		  $tbody.append(
 				 "<tr class='column_'>" +
-			       "<td class='' rowspan='2'>" +
+			       "<td class='cover-td' rowspan='2'>" +
 			       		"<div class='book-cover'>" +
 			       			"<img onclick='clickCover(this);' alt='' src='"+coverPath+"' serial='"+index+"'>" +
 			       		"</div>" +

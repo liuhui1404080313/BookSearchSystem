@@ -113,14 +113,5 @@
 		    <classifier>jdk15</classifier>
 		    <version>2.4</version>
 		</dependency> 
-
-
-
-				
-				
-				
-		
-				
-				
 	</dependencies>
 </project>

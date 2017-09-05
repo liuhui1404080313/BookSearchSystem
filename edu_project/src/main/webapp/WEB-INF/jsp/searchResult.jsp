@@ -13,7 +13,6 @@
 	    <title>Search Result</title>
 		<link href="${ctx}/assets/style/search-result.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="${ctx}/assets/style/bootstrap/bootstrap.min.css">
- 		<!-- <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"> -->
 		
 		<script src="${ctx}/assets/plugins/jquery-3.2.1.min.js"></script>
 		<script src="${ctx}/assets/plugins/jqPaginator.min.js"></script>
@@ -64,16 +63,6 @@
 	                $("#demo1-text").html("当前第" + n + "页");
 	            }
 	        });
-		/*   $("#arrow_to_right").on("click", function() {
-			     $("#main_panel").css("margin-left","3%");
-			     $("#main_panel").css("float","left");
-			     $("#right_panel").show();
-			 });
-		  $("#arrow_carrot_left").on("click", function() {
-			     $("#right_panel").hide();
-			     $("#main_panel").css("margin","0 auto");
-			     $("#main_panel").css("float","inherit");
-			 }); */
 	  });
   </script>
 </html>

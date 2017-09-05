@@ -17,12 +17,12 @@ table{
 }
 
 
-.book-cover{
+/* .book-cover{
 	float:left;
 	margin-left:0px;
 	height: 100%;
 	width:10%;
-}
+} */
 
 .book-info{
 	float:left;
@@ -95,14 +95,18 @@ table{
 
 .search-box{
 	height: 40px;
-	width:90%;
-	border:1px solid #000;
+	width:50%;
+	border:1px solid silver;
 	margin-top: 3%;
 	border-radius:10px;
+	margin-left: 25%;
+}
+.cover-td{
+	width: 100px
 }
 .book-cover{
 	height:100px;
-	width:80px;
+	width:80%;
 	cursor:pointer;
 	box-shadow: 2px 2px 5px #888888;
 }
@@ -118,7 +122,7 @@ table{
 }
 .item-text{
 	float:left;
-	border:1px solid #000;
+	border:1px solid silver;
 	border-radius:15px;
 	margin-right:0px;
 	height: 100%; 
@@ -144,7 +148,7 @@ table{
 }
 .item-num{
 	width:100%;
-	height:40%;
+	height:30%;
 	text-align: center
 }
 .arrow-right-black{
