@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,7 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.edu.edu_project.entity.Book;
 import com.edu.edu_project.entity.BookEntity;
+import com.edu.edu_project.entity.Page;
 
 @Controller
 public class SearchController {
@@ -81,15 +85,60 @@ public class SearchController {
 		return "jsp/searchOrUpload.jsp";
 	}
 
-	@RequestMapping(value = "/search.htm", produces = {
+	/**
+	 * 跳转到搜索结果页面
+	 * @param search
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/toSearchResultPage.htm", produces = {
 			"text/html;charset=UTF-8;", "application/json;" })
-	public String search(String search, ModelMap model) {
+	public String toSearchResultPage(String search, ModelMap model) {
 		model.addAttribute("search", search);
-		model.addAttribute("books", getBooks());
-		System.out.println("enter search.htm");
+		Page page = getPage(1);
+		model.addAttribute("totalPage", page.getTotalPage());
+//		model.addAttribute("page", new Page(1,1));
+		
 		return "jsp/searchResult.jsp";
 	}
 	
+	/**
+	 * 刷新列表
+	 * @param currentPage
+	 * @return
+	 */
+	@RequestMapping(value = "/refreshList.htm", method = RequestMethod.GET, produces = {
+			"text/html;charset=UTF-8;", "application/json;" })
+	@ResponseBody
+	public String refreshList(int currentPage)
+	{
+		Page page = getPage(currentPage);
+		return JSONArray.fromObject(page).toString();
+	}
+	
+	private Page getPage(int currentPage)
+	{
+		List<Book> books = getBooks();
+		Page page = new Page(currentPage,books.size());
+		
+		List<Book> onepageBooks = new ArrayList<Book>();
+		for (int i=0;i<books.size();i++)
+		{
+			if (i>=page.getStartIndex() && i<page.getStartIndex()+page.getPageSize())
+			{
+				onepageBooks.add(books.get(i));
+			}
+		}
+		
+		page.setList(onepageBooks);
+		return page;
+	}
+	
+	/**
+	 * 加载pdf
+	 * @param file
+	 * @return
+	 */
 	@RequestMapping (value = "/loadPpfJsIframe.htm")
 	public String loadPpfJsIframe(String file)
 	{
@@ -99,48 +148,64 @@ public class SearchController {
 //		return "login";
 	}
 
+	/**
+	 * 根据book ID查询搜索条目
+	 * @param bookId book ID
+	 * @param itemNum 第itemNum条
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/searchContByIdAndItem.htm", method = RequestMethod.GET, produces = {
 			"text/html;charset=UTF-8;", "application/json;" })
 	@ResponseBody
 	public String searchContByIdAndItem(@ModelAttribute("bookId") int bookId,
 			@ModelAttribute("itemNum") int itemNum, Model model) {
 		String item = "";
-		List<BookEntity> books = getBooks();
-		for (BookEntity book : books) {
-			if (book.getId() == bookId) {
-				item = book.getSearchItems().get(itemNum);
+		List<Book> books = getBooks();
+		for (Book book : books) {
+			if (book.getBookId() == bookId) {
+				item = book.getContent().get(itemNum);
 			}
 		}
 		return item;
 	}
-
-	private List<BookEntity> getBooks() {
-		BookEntity b1 = new BookEntity();
-		b1.setId(1);
-		b1.setTitle("LianChengJue");
-		b1.setCoverPath("/assets/img/songshu.png");
-		b1.setAuthor("Benjamin Way");
-		b1.setPublisher("中信出版社");
-		List<String> items1 = new ArrayList<String>();
-		items1.add("搜索信息1");
-		items1.add("搜索信息2");
-		b1.setSearchItems(items1);
-
-		BookEntity b2 = new BookEntity();
-		b2.setId(2);
-		b2.setTitle("compressed");
-		b2.setCoverPath("/assets/bookCovers/Effective java.png");
-		b2.setAuthor("Joshua Bloch");
-		b2.setPublisher("机械工业出版社");
-		List<String> items2 = new ArrayList<String>();
-		items2.add("第三个");
-		items2.add("二个");
-		b2.setSearchItems(items2);
+	
+	// ================================以下为构造测试数据方法==========================================
+	private List<Book> getBooks() {
+		
+		List<Book> bookList = new ArrayList<Book>();
+		for (int i=0;i<50;i++)
+		{
+			Book book = new Book();
+			book.setBookId(i);
+			book.setBookName("Effective java"+i);
+			book.setAuthor("Joshua Bloch");
+			book.setCover("/assets/bookCovers/Effective java.png");
+			book.setPublisher("机械工业出版社");
+			List<String> item = new ArrayList<String>();
+			item.add("搜索结果1");
+			item.add("搜索结果2");
+			book.setContent(item);
+			bookList.add(book);
+		}
+		//Page page = new Page(1,1);
 
 		List<BookEntity> books = new ArrayList<BookEntity>();
-		books.add(b1);
-		books.add(b2);
-		return books;
+		for (int i=0;i<4;i++)
+		{
+			BookEntity b1 = new BookEntity();
+			b1.setId(1);
+			b1.setTitle("Effective java"+i);
+			b1.setCoverPath("/assets/bookCovers/Effective java.png");
+			b1.setAuthor("Joshua Bloch");
+			b1.setPublisher("机械工业出版社");
+			List<String> items1 = new ArrayList<String>();
+			items1.add("搜索信息1");
+			items1.add("搜索信息2");
+			b1.setSearchItems(items1);
+			books.add(b1);
+		}
+		return bookList;
 	}
 
 }

@@ -21,7 +21,7 @@
 				id=book_upload />
 		</form> --%>
 	
-		<form id="search_box" style="width:50%" name="searchForm" action="search.htm" method="post">
+		<form id="search_box" style="width:50%" name="searchForm" action="toSearchResultPage.htm" method="post">
 			<div class="wrapper">
 				<input type="text" id="search" name="search"
 					placeholder="Search for books" style = "font-size:30px;"/>
