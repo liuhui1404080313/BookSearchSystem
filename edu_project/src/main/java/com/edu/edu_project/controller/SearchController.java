@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.edu.edu_project.entity.Book;
 import com.edu.edu_project.entity.BookEntity;
@@ -97,7 +98,6 @@ public class SearchController {
 		model.addAttribute("search", search);
 		Page page = getPage(1);
 		model.addAttribute("totalPage", page.getTotalPage());
-//		model.addAttribute("page", new Page(1,1));
 		
 		return "jsp/searchResult.jsp";
 	}
@@ -140,12 +140,11 @@ public class SearchController {
 	 * @return
 	 */
 	@RequestMapping (value = "/loadPpfJsIframe.htm")
-	public String loadPpfJsIframe(String file)
+	public ModelAndView loadPpfJsIframe(@ModelAttribute("file")String file)
 	{
-		return "jsp/viewer.jsp?file=assets/pdf/" + file + ".pdf";
-//		return "jsp/viewer.jsp" + "?file=assets/pdf/LianChengJue.pdf";
-//		return "plugins/pdfJs/generic/web/viewer.html";
-//		return "login";
+		ModelAndView model = new ModelAndView("jsp/viewer.jsp");
+		model.addObject("file", "assets/pdf/"+file+".pdf");
+		return model;
 	}
 
 	/**
@@ -178,7 +177,12 @@ public class SearchController {
 		{
 			Book book = new Book();
 			book.setBookId(i);
-			book.setBookName("Effective java"+i);
+			if (i % 2 == 0)
+			{
+				book.setBookName("LianChengJue");
+			} else {
+				book.setBookName("compressed");
+			}
 			book.setAuthor("Joshua Bloch");
 			book.setCover("/assets/bookCovers/Effective java.png");
 			book.setPublisher("机械工业出版社");

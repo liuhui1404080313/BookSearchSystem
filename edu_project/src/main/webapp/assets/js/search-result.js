@@ -13,19 +13,11 @@
  
  function showPageContent(me){
 	 //$("#main_panel").animate({margin:'0% 0% 0% 3%'});
+	 var fileName = $(me).attr("title");
 	 $("#main_panel").css("margin-left","3%");
      $("#right_panel").css("display","block");
-     //$("#right_panel").show();
-//     var $iframe = $("<iframe><iframe/>",{
-//		  "id":"displayPdfIframe",
-//		  "width" : "100%",
-//		  "height" : "100%",
-//		  "src":"http://localhost:8080/edu-project/assets/pdf/LianChengJue.pdf"
-//	  });
-//     $("#iframe_panel").empty();
-//	 $("#iframe_panel").append('<iframe id="displayPdfIframe" width="100%" height="100%" src="/edu-project/assets/pdf/LianChengJue.pdf"></iframe>');
-	  //$('#displayPdfIframe').attr('src', $('#displayPdfIframe').attr('src'));
-//	  document.frames("displayPdfIframe").document.location="http://localhost:8080/edu-project/assets/pdf/LianChengJue.pdf"; 
+     $("#iframe_panel").empty();
+	 $("#iframe_panel").append('<iframe id="displayPdfIframe" width="100%" height="100%" src="loadPpfJsIframe.htm?file='+fileName+'"></iframe>');
      
  }
  

@@ -15,6 +15,15 @@ table{
 	height: 60px;
 	width:100%
 }
+.key-input{
+	width: 90%;
+    height: 100%;
+	float: left;
+    border: none;
+    outline: none;
+    font-size:30px;
+    margin-left:5%
+}
 
 
 /* .book-cover{

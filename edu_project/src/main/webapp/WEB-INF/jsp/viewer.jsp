@@ -41,9 +41,13 @@ http://sourceforge.net/adobe/cmap/wiki/License/
 	<script src="${ctx}/assets/plugins/pdfJs/generic/build/pdf.js"></script>
 
     <script src="${ctx}/assets/plugins/pdfJs/generic/web/debugger.js"></script>
-    <script src="${ctx}/assets/plugins/pdfJs/generic/web/viewer.js"></script>
+    
     <script type="text/javascript">
     	var WEB_ROOT = "${ctx}";
+    	var filePdfName="${file}";
+    </script>
+    <script src="${ctx}/assets/plugins/pdfJs/generic/web/viewer.js"></script>
+    <script type="text/javascript">
     	PDFJS.workerSrc = "${ctx}/assets/plugins/pdfJs/generic/build/pdf.worker.js";
     </script>
 

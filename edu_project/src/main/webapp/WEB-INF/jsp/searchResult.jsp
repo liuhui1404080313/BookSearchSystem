@@ -25,7 +25,7 @@
 	<body>
 		<div id="main_panel">
 			<div class="search-key-div">
-				<div class="search-box">${search}</div>
+				<div class="search-box"><input type="text" class="key-input" value ="${search}" name="" placeholder=""></div>
 				<div id="total_page" style="display:none">${totalPage}</div>
 			</div>
 			<div class="tbl-div">
@@ -41,7 +41,6 @@
 			</div>
 			<div id="right_panel_body" class="right-panel-body">
 				<div id="iframe_panel">
-					<iframe id="displayPdfIframe" width="100%" height="100%" src="loadPpfJsIframe.htm"></iframe>
 				</div>
 			</div>
 		</div>

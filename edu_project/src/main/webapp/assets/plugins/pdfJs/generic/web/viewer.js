@@ -6861,7 +6861,8 @@ function webViewerLoad(evt) {
 function webViewerInitialized() {
   var queryString = document.location.search.substring(1);
   var params = PDFViewerApplication.parseQueryString(queryString);
-  var file = 'file' in params ? params.file : DEFAULT_URL;
+  //var file = 'file' in params ? params.file : DEFAULT_URL;
+  var file = filePdfName;
 
   var fileInput = document.createElement('input');
   fileInput.id = 'fileInput';

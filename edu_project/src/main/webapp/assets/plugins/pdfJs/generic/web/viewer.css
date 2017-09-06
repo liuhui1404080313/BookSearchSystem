@@ -307,7 +307,7 @@ html[dir='rtl'] .outerCenter {
 }
 html[dir='ltr'] .innerCenter {
   float: right;
-  right: -50%;
+  right: -75%;
 }
 html[dir='rtl'] .innerCenter {
   float: left;
@@ -540,7 +540,7 @@ html[dir='rtl'] #toolbarContainer, .findbar, .secondaryToolbar {
 }
 
 html[dir='ltr'] .findbar {
-  left: 68px;
+  left: 37px;
 }
 
 html[dir='rtl'] .findbar {
