@@ -1,6 +1,8 @@
 body{
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 	font-family: "Microsoft YaHei","ËÎÌו","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif, FreeSans, Arimo;
+	/* height: 90%; */
+   min-width: 1000px;
 }
 
 table{
@@ -8,12 +10,14 @@ table{
 }
 
 .tbl-div{
-	height: 450px
+	height: 440px;
+	margin-top: 10px;
 }
 
 .search-key-div{
 	height: 60px;
-	width:100%
+	width:100%;
+	margin-top: 10px; 
 }
 .key-input{
 	width: 90%;
@@ -58,14 +62,15 @@ table{
 
 #right_panel{
 	width:44%;
-	height:100%;
+	/* height:100%; */
+	height:600px;
 	float:left;
 	background-color:rgba(128, 128, 128, 0.56)
 }
 
 .right-panel-top{
-	width:100%;
-	height:30px
+	width: 100%;
+	height: 30px
 }
 
 .right-panel-btn{
@@ -75,10 +80,10 @@ table{
 
 .right-panel-body{
 	width:98%;
-	height:70px;
+	height:560px;
 	margin-left:1%;
 	background-color:white;
-	height:600px
+	
 }
 
 #iframe_panel{
@@ -98,18 +103,53 @@ table{
 
 #main_panel{
 	width:50%;
-	margin:0% 0% 0% 25%;
+	margin:1% 0% 0% 25%;
 	float:left;
 }
 
-.search-box{
+/* .search-box{
 	height: 40px;
-	width:50%;
+	width:80%;
 	border:1px solid silver;
 	margin-top: 3%;
 	border-radius:10px;
-	margin-left: 25%;
+	margin-left: 10%;
+} */
+#search_box { 	
+	/* border:1px solid silver; */ 
+	border-radius:10px;
+	width:80%;
+	margin-left: 10%;
 }
+
+#search_box .wrapper { 
+	background:#fff; 
+	border:1px solid silver; 
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	height: 42px;
+	padding-left:10px; 
+	position:relative;
+	border-radius:10px
+}
+
+#search {
+	width:90%;
+	height:100%;
+	float:left;
+	border:none;
+	outline:none
+}
+#search_box button {
+	background:#fff;	 
+	position:absolute; 
+	right:2px; 
+	top:7px; 
+	width:10%;
+	border:none;
+	outline:none
+}
+
 .cover-td{
 	width: 100px
 }

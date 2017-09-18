@@ -33,7 +33,7 @@
 			</button>
 		</div>	
 	</form>
-	<form action="toSearch.htm" method="post" name="bookSearchForm">
+	<form action="toSearchResultPage.htm" method="post" name="bookSearchForm">
 		<div>
 			<button id = "book_search" type="submit">
 				PDF搜索

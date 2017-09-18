@@ -78,7 +78,7 @@ public class SearchController {
 
 	@RequestMapping(value = "/login.htm")//到选择页面
 	public String login() {
-		return "jsp/page1.jsp";
+		return "jsp/optionPage.jsp";
 	}
 	@RequestMapping(value = "/toSearch.htm")//到选择页面
 	public String searchResult1() {

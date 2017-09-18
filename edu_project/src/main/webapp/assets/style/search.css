@@ -2,7 +2,9 @@
 <style>
 #search_box { 	
 	border:1px solid silver; 
-	border-radius:10px
+	border-radius:10px;
+	width:80%;
+	margin-left: 10%;
 }
 
 #search_box .wrapper { 

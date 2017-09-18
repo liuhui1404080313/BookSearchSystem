@@ -13,6 +13,7 @@
 	    <title>Search Result</title>
 		<link href="${ctx}/assets/style/search-result.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="${ctx}/assets/style/bootstrap/bootstrap.min.css">
+		<%-- <link href="${ctx}/assets/style/search.css" rel="stylesheet" type="text/css" /> --%>
 		
 		<script src="${ctx}/assets/plugins/jquery-3.2.1.min.js"></script>
 		<script src="${ctx}/assets/plugins/jqPaginator.min.js"></script>
@@ -25,13 +26,20 @@
 	<body>
 		<div id="main_panel">
 			<div class="search-key-div">
-				<div class="search-box"><input type="text" class="key-input" value ="${search}" name="" placeholder=""></div>
+				<form id="search_box" name="searchForm" action="toSearchResultPage.htm" method="post">
+					<div class="wrapper">
+						<input type="text" id="search" name="search" placeholder="Search for books" style = "font-size:25px;"/>
+						<button id = "search_button" type="submit" class="search_btn">
+							<img src="${ctx}/assets/img/Search_24.png" title="Search" />
+						</button>
+					</div>
+				</form>
 				<div id="total_page" style="display:none">${totalPage}</div>
 			</div>
 			<div class="tbl-div">
 				<table></table>
 			</div>
-			<div class="">
+			<div style="text-align:center" class="">
                 <ul id="paginate" class="pagination"></ul>
             </div>
 		</div>
@@ -50,7 +58,7 @@
 		  var totalPage = $("#total_page").text();
 		  $("#paginate").jqPaginator({
 	            totalPages: parseInt(totalPage),
-	            visiblePages: 10,
+	            visiblePages: 7,
 	            currentPage: 1,
 	            first: '<li class="first"><a href="javascript:void(0);">首页<\/a><\/li>',
 	            prev: '<li class="prev"><a href="javascript:void(0);">上一页<\/a><\/li>',
