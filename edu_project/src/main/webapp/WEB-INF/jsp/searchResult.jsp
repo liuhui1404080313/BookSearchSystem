@@ -28,7 +28,7 @@
 			<div class="search-key-div">
 				<form id="search_box" name="searchForm" action="toSearchResultPage.htm" method="post">
 					<div class="wrapper">
-						<input type="text" id="search" name="search" placeholder="Search for books" style = "font-size:25px;"/>
+						<input type="text" id="search" name="search" placeholder="Search for books" value ="${search}" style = "font-size:25px;"/>
 						<button id = "search_button" type="submit" class="search_btn">
 							<img src="${ctx}/assets/img/Search_24.png" title="Search" />
 						</button>
